@@ -55,11 +55,11 @@ function addConnection(link){
       dashstyle:"4 2"
     })
    
-      var box= linkconn.getOverlays();
-      if(box.isVisiable==true){box.setVisiable(false)} 
-       box[1].setVisible(false); 
-       }
-       
+    //  var box= linkconn.getOverlays();
+     // if(box.isVisiable==true){box.setVisiable(false)} 
+     //  box[1].setVisible(false); 
+    }
+    
 
      }
 

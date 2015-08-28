@@ -132,7 +132,7 @@ function drawbox(type,data,conn){
  } 
  updatelink(data,"activity",conn);
       //console.log(data);
-      $("#"+durationId).text("Duration: "+du[data.activity]);
+    //  $("#"+durationId).text("Duration: "+du[data.activity]);
       
       
     })

@@ -20,7 +20,7 @@ jsPlumb.bind("connection",  function(info, originalEvent) {
         
         var box= conn.getOverlays();   
        if(box[1].visible == true){
-             box[1].setVisible(false);
+             box[1].setVisible(true);
         }
         else{
              box[1].setVisible(true);

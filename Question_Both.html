@@ -53,7 +53,10 @@
     ._jsPlumb_endpoint_anchor_{
       position:relative; 
       z-index:10000000;
-    }  .datatable { 
+    }  
+     .datatable { 
+      top:100;
+      left:100;
       background-color: white;
       position:absolute; 
       border: solid 1px;
@@ -86,6 +89,15 @@
       margin-right:0px;
       margin-left:0px;
     }
+    .answerbox {
+      background-color: white;
+      float: right;
+      top:100;
+      left:100;
+      border: solid 1px; 
+      width:90px;
+      height:50px;
+      background:white;}
   </style> 
 </head>  
 <body>   <div id="containment_limit">
@@ -93,9 +105,10 @@
  
  <div class='box' id="hide">
    
-   <button id=c>add Circle</button>
    
+   <button id=c>add Circle</button> 
    <button id=clear>clear</button>
+   <div class="answerbox"> put answer here:? <div>
  </div>
  
  <p id='warn'>  </p>

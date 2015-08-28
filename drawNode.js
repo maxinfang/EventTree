@@ -41,16 +41,16 @@ function drawnode(node){
     
       if(node.activity==""){ 
        node.activity=0;
-       dropL=addDroplist();
+     //  dropL=addDroplist();
        dropLid=$(dropL).prop('id');
-       $(dropL).width('90%'); 
-       dropL.show();
+       //$(dropL).width('90%'); 
+      // dropL.show();
      }
      
        else{        
-        dropL=addDroplist(node.activity);
+       // dropL=addDroplist(node.activity);
         dropLid=$(dropL).prop('id'); 
-        $(dropL).width('90%');
+       // $(dropL).width('90%');
         
       }    
      
@@ -93,7 +93,7 @@ function drawnode(node){
    ESTdata.style.display = 'block';
    
    
-   $(ESTdata).append(addlabel("Prob"));
+   $(ESTdata).append(addlabel("Answer"));
    $(ESTdata).append(EST);
    
    
@@ -186,7 +186,7 @@ function drawnode(node){
     node.activity= indexvalue;
     updateNode(node,"activity");
     
-    $("#"+durationId).text("Duration: "+du[node.activity]);
+   // $("#"+durationId).text("Duration: "+du[node.activity]);
     
     
   })
