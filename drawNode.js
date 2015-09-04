@@ -208,19 +208,17 @@ function drawnode(node){
    
   
     
-   $(datadiv).bind("dblclick","doubletap",
-     function() {  
-     
-       $("#"+datadivId).toggle("slow") ;
-     });
-   
+  
+    
    $(dragzone).bind("dblclick","doubletap",
       function() { 
      $("#"+datadivId).toggle("slow") ;
    }
       );
-   
-   if(node.activity==0){$(datadiv).hide()}
+  
+   console.log(node);
+  $(datadiv).hide();
+// if(node.activity==0){$(datadiv).hide()}
     
 //  if(mode != "correct") {$(datadiv).hide();  }
 

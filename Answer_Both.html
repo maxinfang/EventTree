@@ -1,4 +1,5 @@
 
+
 <html lang="en">
 <head>  
   <title>Max Decision tree and input images Demo</title> 
@@ -19,29 +20,34 @@
   <script type="text/javascript" src="drawbox.js"></script>
   <script type="text/javascript" src="jQuery.jLdraggable.js"></script>
   <script type="text/javascript" src="dbltap.js"></script>
-  
   <style>
-     .body{      }
+    .body{      }
     
     .container {  
-      position: absolute; 
-      width:100px;  
-       z-index:1000000000; 
+      position:absolute; 
+      width:100px;   
     } 
- 
-    div.delete{ 
-     display:none; 
-   }
-     .droplist{
+    
+    div.delete{
+     
+      position: relative;
+      top:20;
+      z-index:1000000000;
+      width: 110px;
+      height: 20px;
+    }
+    
+
+    .droplist{
       position:relative;
       
       width:100px;
-    }    
-   .connectorClass{
-       position:absolute; 
-        z-index:1;
-  } 
-   ._jsPlumb_source_hover{
+    }
+    .connectorClass{
+      position:absolute; 
+      z-index:1;
+    } 
+    ._jsPlumb_source_hover{
       position:relative; 
       z-index:10000000;
     }
@@ -49,23 +55,31 @@
       position:relative; 
       z-index:10000000;
     }  
-   
-  .datatable { 
-    background-color: white;
-    position:absolute; 
-    border: solid 1px;
-    width: 120px;
+     .datatable { 
+      top:100;
+      left:100;
+      background-color: white;
+      position:absolute; 
+      border: solid 1px;
+      width: 120px;
+      
+      display: inline-block;
+      background:white;
+      
+    }  
+    .box { 
+      position: relative;
+      background: transparent;
+      z-index:50;
+    }
     
-    display: inline-block;
-    background:white;
     
-  }  
-  .box { 
-    position: fixed;
-    background: transparent;
-    z-index:50000;
-  }
-  #containment_limit{
+    
+    p{position:relative;
+      color:red;
+      z-index:-1;
+    }
+    #containment_limit{
       width:98%;
       height:84%;
       border-style:solid;
@@ -76,22 +90,31 @@
       margin-right:0px;
       margin-left:0px;
     }
-  input[type=text]
-  {         width:50px;   
-  }          p{
-    color:red
-  }
-</style> 
+    .answerbox {
+      background-color: white; 
+      border: solid 1px;  
+      width:120px;
+      height:100px;
+      
+      }
+  </style> 
 </head>  
-<body> 
- <div id="containment_limit">
+<body>   <div id="containment_limit">
  <div id='canvasdiv'>    </div>
  
  <div class='box' id="hide">
    
+   <div style = "float:left">
+   <button id=c>add Circle</button> 
+   <button id=clear >clear</button>
+     <a class="answerbox"> Finall Answer:
+      <input id="ui-id-4" type="text" name="EST" style="width: 50px;">
+     </a>
+   
+     <div>
  </div>
  
  <p id='warn'>  </p>
 </div>
 </body>
-   </html>
+</html>

@@ -31,6 +31,8 @@ function addConnection(link){
   t=jsPlumb.selectEndpoints({target: targetid}).get(0);
   
   
+  console.log(s);
+  
   var linkconn= jsPlumb.connect({
    source:s,
    target:t 

@@ -1,4 +1,5 @@
 
+
 <html lang="en">
 <head>  
   <title>Max Decision tree and input images Demo</title> 
@@ -30,7 +31,7 @@
     div.delete{
      
       position: relative;
-      top:20;
+      top:25;
       z-index:1000000000;
       width: 110px;
       height: 20px;
@@ -90,14 +91,12 @@
       margin-left:0px;
     }
     .answerbox {
-      background-color: white;
-      float: right;
-      top:100;
-      left:100;
-      border: solid 1px; 
-      width:90px;
-      height:50px;
-      background:white;}
+      background-color: white; 
+      border: solid 1px;  
+      width:120px;
+      height:100px;
+      
+      }
   </style> 
 </head>  
 <body>   <div id="containment_limit">
@@ -105,10 +104,14 @@
  
  <div class='box' id="hide">
    
-   
+   <div style = "float:left">
    <button id=c>add Circle</button> 
-   <button id=clear>clear</button>
-   <div class="answerbox"> put answer here:? <div>
+   <button id=clear >clear</button>
+     <a class="answerbox"> Finall Answer:
+      <input id="ui-id-4" type="text" name="EST" style="width: 50px;">
+     </a>
+   
+     <div>
  </div>
  
  <p id='warn'>  </p>

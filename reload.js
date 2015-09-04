@@ -2,8 +2,9 @@ function redraw(history){
   
  myNodes=deserialiseC(history);
  mylinks=deserialiseL(history);
- 
- 
+
+  
+  console.log("here");
  if (myNodes == []) return;
  
    if(mode == "submission" || mode == "student")

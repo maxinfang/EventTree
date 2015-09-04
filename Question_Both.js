@@ -143,6 +143,36 @@ $(document).ready(function()  {
      var conn = info.connection;
      var parentId=$('#'+conn.sourceId).parent().attr('id');
      var childId=$('#'+conn.targetId).parent().attr('id');
+      
+      
+      
+      if( $("#"+parentId) !=null ) 
+        {
+       $("#"+parentId).children().each(function(no,el){
+         if($(el).hasClass("datatable")){
+           
+           console.log($(el));
+             $(el).hide();
+          
+         } 
+       })
+      
+       
+     }
+      
+      if( $("#"+childId) !=null ) 
+        {
+       $("#"+childId).children().each(function(no,el){
+         if($(el).hasClass("datatable")){
+           
+           console.log($(el));
+             $(el).show();
+          
+         } 
+       })
+      
+       
+     }
      
      
      if (parentId != childId) {
@@ -179,7 +209,7 @@ $(document).ready(function()  {
        box[1].setVisible(true);
      
      $(".datatable").jLzindex(); 
-        $(".datatable").show(); 
+       
    }
     
     }  
@@ -194,6 +224,37 @@ $(document).ready(function()  {
       var parentId=$('#'+conn.sourceId).parent().attr('id');
     var childId=$('#'+conn.targetId).parent().attr('id'); 
     var beforeId= $('#'+info.targetId).parent().attr('id');
+     
+       if( $("#"+parentId) !=null ) 
+        {
+       $("#"+parentId).children().each(function(no,el){
+         if($(el).hasClass("datatable")){
+           
+           console.log($(el));
+             $(el).show();
+          
+         } 
+       })
+      
+       
+     }
+      
+      if( $("#"+childId) !=null ) 
+        {
+       $("#"+childId).children().each(function(no,el){
+         if($(el).hasClass("datatable")){
+           
+           console.log($(el));
+             $(el).hide();
+          
+         } 
+       })
+      
+       
+     }
+     
+     
+     
     
      console.log("*******************event trigged");
     console.log("thisnodepriviousid"+beforeId);   
@@ -243,7 +304,8 @@ $(document).ready(function()  {
       
      for(var n=0; n<myNodes.length;n++){
        var node= myNodes[n];
-       var currentId=node.id;    
+       var currentId=node.id;   
+      console.log(currentId); 
       
         if( $("#"+currentId) !=null ) 
         {

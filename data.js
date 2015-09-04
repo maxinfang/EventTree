@@ -31,7 +31,7 @@ function addtext(lable,value){
   var text= document.createElement('input');
   $(text).uniqueId();  
   text.type="text";
-  text.style.width='30px';
+  text.style.width='60px';
 
   text.name=lable; 
   if(typeof(value) != "undefined")
