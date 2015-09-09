@@ -3,8 +3,7 @@ function redraw(history){
  myNodes=deserialiseC(history);
  mylinks=deserialiseL(history);
 
-  
-  console.log("here");
+   
  if (myNodes == []) return;
  
    if(mode == "submission" || mode == "student")
@@ -18,7 +17,7 @@ function redraw(history){
    
 
  
-if(mode=="correct" && answer_type=="precedence") { 
+if(mode=="correct") { 
  var root = new Node();
  root = findrootnode();  
  var linkedArray= new Array(); 
@@ -152,7 +151,7 @@ if(mode=="correct" && answer_type=="precedence") {
    
  }
   
-  else if(mode=="correct" && answer_type=="arrow"){
+  else if(mode=="correct"  ){
     
     for(n=0; n<myNodes.length;n++){ 
        var node= myNodes[n];

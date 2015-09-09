@@ -25,7 +25,7 @@ var op= new Array();
 //console.log(namespaceforSub);
 if(parent.document.getElementById(namespaceforAnswer))
  {mode ="correct";
-  answer_type=getType();
+  answer_type="eventTree";//getType();
 }
 
 function getType(){

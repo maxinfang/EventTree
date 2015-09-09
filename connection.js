@@ -27,11 +27,33 @@ function addConnection(link){
     } 
   });
   
+  var parentId=$('#'+sourceid).parent().attr('id');
+  var childId=$('#'+targetid).parent().attr('id');
+  
+  
+   $("#"+parentId).children().each(function(no,el){
+         if($(el).hasClass("datatable")){
+           $(el).hide();
+          
+         } 
+       })
+     
+  $("#"+childId).children().each(function(no,el){
+         if($(el).hasClass("datatable")){
+           
+           console.log($(el));
+             $(el).show();
+          
+         } 
+       })
+  
   s=jsPlumb.selectEndpoints({source: sourceid}).get(0);
   t=jsPlumb.selectEndpoints({target: targetid}).get(0);
   
+  console.log("printhere");
+  console.log(parentId);
   
-  console.log(s);
+  
   
   var linkconn= jsPlumb.connect({
    source:s,
