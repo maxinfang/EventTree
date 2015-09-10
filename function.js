@@ -77,6 +77,15 @@ function connectionClass(connector) {
 }
 
 
+function deserialiseF(string){  
+ var array= new Array(); 
+ var stringwithCandL=string.split('a');  
+  
+  console.log("get answer");
+  console.log(stringwithCandL[2]);
+  
+  return stringwithCandL[2];
+}
 
 function deserialiseL(string){  
  var array= new Array(); 
@@ -143,7 +152,7 @@ function deserialiseC(string){
   }
 
 
-  function serialise(myNodes,mylinks){
+  function serialise(myNodes,mylinks,fianl){
     
     var answervalue ="";  
     for(l=0;l<myNodes.length;l++){
@@ -204,7 +213,9 @@ function deserialiseC(string){
       
       
     } 
-    
+     answervalue+=CL_SEPARATOR;
+    answervalue+=final;
+     ;
     return answervalue;
     
   } 
@@ -549,14 +560,14 @@ console.log("------------------------------------------------------");
 }   
 if (istailexist==0) numberOfnoParent++;
 }
- 
+ /*
 if(repeatflag){
  $("body").css("background-color","#fee");
  $("p").text("Warning: Two activities use the same label!");
 
-}
+}*/
 
-else if (warningFlag) {
+ if (warningFlag) {
  
  $("body").css("background-color","#fee");
  $("p").text("Warning: Not all nodes are connected!");
@@ -575,7 +586,7 @@ else{
 function sentToparentPage()
 { giveWarning(myNodes,mylinks);
   console.log(mylinks);
-  answervalue= serialise(myNodes,mylinks);
+  answervalue= serialise(myNodes,mylinks,final);
   console.log(answervalue);
   
   var elem= parent.document.getElementsByTagName("input"); 

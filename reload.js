@@ -2,8 +2,16 @@ function redraw(history){
   
  myNodes=deserialiseC(history);
  mylinks=deserialiseL(history);
-
+ final = deserialiseF(history);
+  
+  console.log("print ");
    
+   
+    
+      console.log($('#answer').val(final));
+   
+ 
+  
  if (myNodes == []) return;
  
    if(mode == "submission" || mode == "student")

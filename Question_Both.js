@@ -1,5 +1,6 @@
  var myNodes=new Array();
  var mylinks=new Array();
+ var final = "";
  var templink;
  var questionId=this.frameElement.attributes.id.value; 
  var array = questionId.split("_");
@@ -17,6 +18,7 @@ var namespaceforSub = array[0]+"_"+array[1]+"_submission";
 var namespaceforEntry = array[0]+"_"+array[1]+"_entry"; 
 var namespaceforLabel= array[0]+"_"+array[1]+"_label"; 
 var namespaceforDuration= array[0]+"_"+array[1]+"_duration"; 
+var namespaceforFinal= array[0]+"_"+array[1]+"_final"; 
 var op= new Array();
 
  
@@ -299,6 +301,16 @@ $(document).ready(function()  {
  });
   
   
+   $("#answer").change(function(){ 
+     console.log( $("#answer").val());
+     final = $("#answer").val();
+      sentToparentPage(); 
+                   
+ });
+   
+    
+   
+   
   $("#clear").click(function(){ 
    if (confirm('Delete all nodes?')) { 
       
