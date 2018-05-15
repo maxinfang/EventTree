@@ -1,6 +1,7 @@
 
 
 var Color="#fa0000";
+var strokecolor="black";
 
 if(color =="blue") Color="#0060bf";
 if(color =="red") Color="#d9534f";
