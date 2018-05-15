@@ -1,10 +1,35 @@
 
 
 var Color="#fa0000";
+
+if(color =="blue") Color="#0060bf";
+if(color =="red") Color="#d9534f";
+if(color =="orange") Color="#ffa500";
+if(color =="green") Color ="#5cc902";
+if(color =="grey") Color ="#808080"; //testing color
+
 if(mode=="correct") { Color= "#5cc902"};
 if(mode=="submission") { Color= "#0060bf"};  
 
-function addShape(type,dragzone){
+
+function addShapewithColor(type,dragzone,color,dotcolor,outlinecolor){
+  
+if(color =="blue") Color="#0060bf";
+if(color =="red") Color="#d9534f";
+if(color =="orange") Color="#ffa500";
+if(color =="green") Color ="#5cc902";
+if(color =="grey") Color ="#808080"; //testing color 
+  
+if(dotcolor =="red") {dotColor="red";Color ="#ffa500";} else {dotColor="#456"}
+if(outlinecolor =="outlinered") { console.log("~~~~~~~~~~~~~~~");strokecolor="red";  } else { strokecolor="black";}
+  
+if (type=="C") {addCircle(dragzone);} 
+  
+}
+
+
+
+function addShape(type,dragzone){ 
   if (type=="C") {addCircle(dragzone);} 
 }
  
@@ -15,6 +40,7 @@ function addCircle(dragzone) {
   var circle =paper.circle(50, 50)
   .attr({
     fill : Color, 
+    stroke : strokecolor,
     r : 45
   }); 
   
@@ -22,11 +48,11 @@ function addCircle(dragzone) {
   var sourcePoint= {
     anchor:"Right",  
     // deleteEndpointsOnDetach: false,
-    connectorStyle: {
-      lineWidth: 2,
-      strokeStyle: '#666' 
-       
-    }, 
+      paintStyle:{ fillStyle: dotColor},
+         connectorStyle: {
+            lineWidth: 2,
+            strokeStyle: '#666'
+        }, 
      maxConnections: -1,
     connector: ["Straight"], 
      connectorOverlays: [["Arrow",

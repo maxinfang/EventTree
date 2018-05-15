@@ -14,6 +14,9 @@ if(array[0] != "question"){
  
 var mode="student";
 var history_page=""; 
+
+var correct_string='';
+var namespaceforAnswer= array[0]+"_"+array[1]+"_answer"; 
 var namespaceforSub = array[0]+"_"+array[1]+"_submission";
 var namespaceforEntry = array[0]+"_"+array[1]+"_entry"; 
 var namespaceforLabel= array[0]+"_"+array[1]+"_label"; 
@@ -107,6 +110,19 @@ function getSubmission(){
   return element.innerHTML;
 }
 
+
+function getCorrectAnswer(){
+   
+  var el=parent.document.getElementById(namespaceforAnswer); 
+   if (el== null) { 
+          return;
+      }
+     console.log( el.innerHTML);
+  return el.innerHTML;
+    
+ } 
+
+
 var op = getEntry();
 var du= getDuration();
 //console.log(du);
@@ -123,17 +139,21 @@ $(document).ready(function()  {
     jsPlumb.connectorClass =  "connectorClass";   
     $(".datatable").jLzindex();
  
-    if(mode=="submission") {  history_page= getSubmission();
+    if(mode=="submission") {
+      history_page= getSubmission();
+      correct_string= getCorrectAnswer();
       
     }
      
-    if(mode=="student"){history_page=getHistory();
+    if(mode=="student"){
+      history_page=getHistory();
+       correct_string='';
     }
     
     if(history_page == "" ){ 
     }
     else{  
-     redraw(history_page); 
+     redraw(history_page,correct_string); 
      addConnections(mylinks);
    }
    

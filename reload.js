@@ -1,20 +1,15 @@
-function redraw(history){
+function redraw(history,correct_string){
   
  myNodes=deserialiseC(history);
  mylinks=deserialiseL(history);
  final = deserialiseF(history);
   
-  console.log("print ");
-   
-   
-    
-      console.log($('#answer').val(final));
-   
+  
  
   
  if (myNodes == []) return;
  
-   if(mode == "submission" || mode == "student")
+   if( mode == "student")
   { for(n=0; n<myNodes.length;n++){ 
     var node= myNodes[n];
     console.log(node);
@@ -22,10 +17,47 @@ function redraw(history){
   }   
   
 }
+  
+  
+   if(mode == "submission" )
+  {
+    console.log("!!!!------------Submission mode--------------!!!!!!");
+        console.log("!!!!------------get correct answer as well--------------!!!!!!");     
+    
+        myNodes_correct=deserialiseC(correct_string);
+        mylinks_correct=deserialiseL(correct_string);
+        final_correct = deserialiseF(correct_string); 
+    
+        console.log("!!!!------------compare the correct answer--------------!!!!!!");
+        console.log("!!!!------------add the color to the small dot node--------------!!!!!!");
+    
+    
+    
+        console.log("!!!!------------add the color the prob input --------------!!!!!!");
+        console.log("!!!!---------------------------------------!!!!!!");
+        console.log("!!!!-----------------------------------------!!!!!!");
+        console.log("!!!!----------------------------------------!!!!!!");
+        console.log("!!!!------------to be done--------------!!!!!!");
+    
+    
+     for(n=0; n<myNodes.length;n++){ 
+        var node= myNodes[n];
+       
+        node.color="orange"; 
+        node.dotcolor="red"; 
+        node.outlinecolor="outlinered";
+                      
+        drawnode(node);
+  }   
+  
+}
+   
    
 
  
 if(mode=="correct") { 
+  
+  
  var root = new Node();
  root = findrootnode();  
  var linkedArray= new Array(); 
@@ -334,7 +366,7 @@ if(mode=="correct") {
     }
       for (j=0;j<linkedArray.length;j++){ console.log(linkedArray[j]);}
     
-     addConnections(mylinks);
+    // addConnections(mylinks);
     
   }
 }

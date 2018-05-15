@@ -32,8 +32,9 @@ function drawnode(node){
        if(mode =="student") { $(newdiv).append(deletezone);} 
 
       $(newdiv).append(dragzone);  
-      addShape("C",dragzone);  
-      
+     // addShape("C",dragzone);  
+      addShapewithColor("C",dragzone,node.color,node.dotcolor,node.outlinecolor); 
+
       
       var dropL;
       var dropLid;
