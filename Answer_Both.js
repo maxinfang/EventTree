@@ -140,7 +140,11 @@ $(document).ready(function()  {
    //check wehter we need reload or not
    
    
-   if(mode=="correct" ){history_page=getHistory();
+   if(mode=="correct" ){
+     
+      $("#c").hide(); 
+ $("#clear").hide();
+            history_page=getHistory();
                       //console.log("studentpage:"+history);
                     }
                     
