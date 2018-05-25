@@ -41,7 +41,7 @@ function addConnection(link){
   $("#"+childId).children().each(function(no,el){
          if($(el).hasClass("datatable")){
            
-           console.log($(el));
+   //        console.log($(el));
              $(el).show();
           
          } 
@@ -50,8 +50,8 @@ function addConnection(link){
   s=jsPlumb.selectEndpoints({source: sourceid}).get(0);
   t=jsPlumb.selectEndpoints({target: targetid}).get(0);
   
-  console.log("printhere");
-  console.log(parentId);
+ // console.log("printhere");
+ // console.log(parentId);
   
   
   

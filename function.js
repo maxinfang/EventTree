@@ -93,7 +93,7 @@ function deserialiseL(string){
  var stringlink=stringwithCandL[1]; 
  if(stringlink.length ==0) return [];   
  var link= stringlink.split('L');  
-   //console.log(link);
+   console.log(link);
  for(i=1;i<link.length;i++){ 
    var shapeanddata=link[i].split('D');  
    var linkAttribute= shapeanddata[0].split('c'); 
