@@ -149,6 +149,37 @@ function drawnode(node){
  //  $(element).append( FFdata); 
    
    
+   $(EST).change(function() {
+     node.EST= $(EST).val();
+     updateNode(node,"EST");
+     
+   });   
+   $(EFT).change(function() {
+     node.EFT= $(EFT).val();
+     updateNode(node,"EFT");
+     
+   });  
+   $(LST).change(function() {
+     node.LST= $(LST).val();
+     updateNode(node,"LST");
+     
+   }); 
+   $(LFT).change(function() {
+     node.LFT= $(LFT).val();
+     updateNode(node,"LFT");
+     
+   }); 
+   $(FF).change(function() {
+     node.FF= $(FF).val();
+     updateNode(node,"FF");
+     
+   }); 
+   $(TF).change(function() {
+     node.TF= $(TF).val();
+     updateNode(node,"TF");
+     console.log("the value has been changed");
+     
+   }); 
    
    
    $(dropL).change(function() { 
