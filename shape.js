@@ -9,12 +9,14 @@ if(color =="orange") Color="#ffa500";
 if(color =="green") Color ="#5cc902";
 if(color =="grey") Color ="#808080"; //testing color
 
-if(mode=="correct") { Color= "#5cc902"};
+if(mode=="correct") {   color= "green"};
 if(mode=="submission") { Color= "#0060bf"};  
 
 
 function addShapewithColor(type,dragzone,color,dotcolor,outlinecolor){
+
   
+  if(mode=="correct") {   color= "green"};
 if(color =="blue") Color="#0060bf";
 if(color =="red") Color="#d9534f";
 if(color =="orange") Color="#ffa500";
