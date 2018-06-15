@@ -13,12 +13,14 @@
   
 }; 
 
+var correct_string='';
 var history_page=""; 
 var namespaceforSub = array[0]+"_"+array[1]+"_submission";
 var namespaceforEntry = array[0]+"_"+array[1]+"_entry"; 
 var namespaceforLabel= array[0]+"_"+array[1]+"_label"; 
 var namespaceforDuration= array[0]+"_"+array[1]+"_duration"; 
-var namespaceforAnswer= array[0]+"_"+array[1]+"_answer"; var namespacefortype= array[0]+"_"+array[1]+"_type"; 
+var namespaceforAnswer= array[0]+"_"+array[1]+"_answer";
+var namespacefortype= array[0]+"_"+array[1]+"_type"; 
 var op= new Array();
 
 
@@ -94,23 +96,25 @@ function getEntry(){
 }
 
 
-function getCorrectAnswer(){
- 
-  var el=parent.document.getElementById(namespaceforAnswer).innerHTML; 
-  
-  return el;
-  
-} 
-function getHistory(){
-  
-  var elem= getCorrectAnswer();
-  
-  
-  return elem;
-  
-  
-} 
 
+function getSubmission(){
+  var element=parent.document.getElementById(namespaceforSub);
+  
+  //console.log(element.innerHTML);
+  return element.innerHTML;
+}
+
+
+function getCorrectAnswer(){
+   
+  var el=parent.document.getElementById(namespaceforAnswer); 
+   if (el== null) { 
+          return;
+      }
+     console.log( el.innerHTML);
+  return el.innerHTML;
+    
+ } 
 
 
 
@@ -143,15 +147,16 @@ $(document).ready(function()  {
    if(mode=="correct" ){
      
       $("#c").hide(); 
- $("#clear").hide();
-            history_page=getHistory();
+ $("#clear").hide(); 
+     correct_string  = getCorrectAnswer();
+     history_page =   getSubmission();
                       //console.log("studentpage:"+history);
                     }
                     
                     if(history_page == "" ){ 
                     }
                     else{   
-                    redraw(history_page);   
+                    redraw(history_page, correct_string );   
                    }
                    
                    

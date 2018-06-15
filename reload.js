@@ -21,13 +21,7 @@ function redraw(history,correct_string){
   
    if(mode == "submission" )
   {
-        
-    
-        myNodes_correct=deserialiseC(correct_string);
-        mylinks_correct=deserialiseL(correct_string);
-        final_correct = deserialiseF(correct_string); 
-    
-       
+         
     
      for(n=0; n<myNodes.length;n++){ 
         var node= myNodes[n];
@@ -45,6 +39,10 @@ function redraw(history,correct_string){
 
  
 if(mode=="correct") { 
+        
+        myNodes=deserialiseC(correct_string);
+        mylinks=deserialiseL(correct_string);
+        final = deserialiseF(correct_string); 
 
   
  var root = new Node();
@@ -104,52 +102,40 @@ if(mode=="correct") {
 
        }
   
-     
-  
-   
-  
-  
        
+   
        var linkedrootnode=findlinkednode(root.id)
        recursive(linkedrootnode); 
        var deep =linkedrootnode.level;
-       console.log("find root node");
-       console.log(linkedrootnode);
-       console.log("~~~~~");
+       
+      
+       
        for(var n=deep; n>0 ;n--){
         
          for (var j=0;j<linkedArray.length;j++){
            var  lnode=  linkedArray[j];
            if(lnode.level== n) {  
-            
-            
-            
+                if(lnode.prevconnectors==null)      
+                  {lnode.node.EST=1;}
+             else { lnode.node.EST= lnode.prevNode[0].node.EST*lnode.prevconnectors.EST;  
+             } 
           }
         }
       }
-      var project_duration=0; 
-      
-      for( var i=1; i<=deep; i++ )   {
-       for (var j=0;j<linkedArray.length;j++){
        
-         
-      }
-    }
-     
-    for( var i=1; i<=deep; i++ )   {
+      var final=0;
       for (var j=0;j<linkedArray.length;j++){
-       var  lnode=  linkedArray[j]; 
-       if(lnode.level==i) {
-             console.log(lnode.node);
+       var  lnode =  linkedArray[j]; 
+         if(lnode.level==1) {
+             console.log(lnode);
+             final =lnode.node.EST+final;
         }
     
       }
-      
-    }
+      console.log(final);
+    
  
-  
-  
-     
+   
      for(n=0; n<myNodes.length;n++){ 
        var node= myNodes[n];
      
