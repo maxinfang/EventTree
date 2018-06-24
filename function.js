@@ -25,6 +25,8 @@ if (!Array.prototype.indexOf)
           this[from] === elt)
         return from;
     }
+    
+    func
     return -1;
   };
 }
@@ -78,14 +80,29 @@ function connectionClass(connector) {
 
 
 function deserialiseF(string){  
- var array= new Array(); 
- var stringwithCandL=string.split('a');  
+  var array= new Array(); 
+  var stringwithCandL=string.split('a');   
   
-  console.log("get answer");
-  console.log(stringwithCandL[2]);
   
+  if (isset(stringwithCandL[2])){
+  updatefinalAnswer(stringwithCandL[2]);
   return stringwithCandL[2];
+  
+  }
+
 }
+
+function updateFinalAnser(new value){
+  
+  //console.log(this.getelementsbyID("answer"));
+   
+
+  
+
+
+}
+
+ 
 
 function deserialiseL(string){  
  var array= new Array(); 

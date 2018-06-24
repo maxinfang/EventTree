@@ -18,7 +18,6 @@ function drawbox(type,data,conn){
       dropLid=$(dropL).prop('id'); 
       $(dropL).width('90%');
       
-      
     }    
     var dataLeft= $(newdiv).position().left;
     var dataTop= $(newdiv).position().top; 

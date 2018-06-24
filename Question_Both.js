@@ -14,7 +14,6 @@ if(array[0] != "question"){
  
 var mode="student";
 var history_page=""; 
-
 var correct_string='';
 var namespaceforAnswer= array[0]+"_"+array[1]+"_answer"; 
 var namespaceforSub = array[0]+"_"+array[1]+"_submission";
@@ -165,8 +164,6 @@ $(document).ready(function()  {
      var conn = info.connection;
      var parentId=$('#'+conn.sourceId).parent().attr('id');
      var childId=$('#'+conn.targetId).parent().attr('id');
-      
-      
       
       if( $("#"+parentId) !=null ) 
         {

@@ -123,7 +123,7 @@ if(mode=="correct") {
         }
       }
        
-      var final=0;
+     /* var final=0;
       for (var j=0;j<linkedArray.length;j++){
        var  lnode =  linkedArray[j]; 
          if(lnode.level==1) {
@@ -132,9 +132,8 @@ if(mode=="correct") {
         }
     
       }
-      console.log(final);
-    
- 
+      console.log(final); 
+       */
    
      for(n=0; n<myNodes.length;n++){ 
        var node= myNodes[n];

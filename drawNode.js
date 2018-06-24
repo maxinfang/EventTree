@@ -14,7 +14,6 @@ function drawnode(node){
     //   console.log("css:"+node.top+":"+node.left);
       $(newdiv).css({ top: node.top, left: node.left });
     } 
-    
     $("#canvasdiv").append(newdiv); 
     dragzone= document.createElement('div'); 
     deletezone= document.createElement('div'); 
