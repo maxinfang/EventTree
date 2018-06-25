@@ -17,21 +17,31 @@ function redraw(history,correct_string){
   }   
   
 }
-  
+   
   
    if(mode == "submission" )
   {
          
-    
      for(n=0; n<myNodes.length;n++){ 
         var node= myNodes[n];
        
-        node.color="orange"; 
-        node.dotcolor="red"; 
-        node.outlinecolor="outlinered";
+        node.color="orange";   // missing
+        node.dotcolor="red";    //wrong children
+        node.outlinecolor="outlinered";   //???
                       
         drawnode(node);
   }   
+    
+    for(m=0; m<mylinks.length;m++){ 
+        var linker= mylinks[m];
+        console.log(linker);
+        linker.dropdowncolor="red";
+        linker.probcolor="red";
+     
+  }   
+     
+     
+     addConnections(mylinks);
   
 }
    
@@ -69,7 +79,6 @@ if(mode=="correct") {
  } 
  
  
-
      
      for (j=0;j<linkedArray.length;j++){ 
       

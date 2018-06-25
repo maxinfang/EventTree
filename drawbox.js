@@ -48,11 +48,24 @@ function drawbox(type,data,conn){
     
   // $(element).append(addlabel("Prob"));
    //  console.log("test"+data.EST);
+       
+   if (data.probcolor !="red")  {
    var EST = (data.EST=="") ? addtext("EST") : addtext("EST",data.EST);
    var ESTdata = document.createElement("div");
    ESTdata.style.display = 'block'; 
    $(ESTdata).append(addlabel("Prob"));
-   $(ESTdata).append(EST); 
+   $(ESTdata).append(EST);    
+ 
+  }
+  else {
+  
+   var EST = (data.EST=="") ? addtextwithred("EST") : addtext("EST",data.EST);
+   var ESTdata = document.createElement("div");
+   ESTdata.style.display = 'block'; 
+   $(ESTdata).append(addlabel("Prob"));
+   $(ESTdata).append(EST);    
+  
+  }
    
    var EFT = (data.EFT=="") ? addtext("EFT") :     addtext("EFT",data.EFT);
    

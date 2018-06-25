@@ -153,7 +153,7 @@ $(document).ready(function()  {
     }
     else{  
      redraw(history_page,correct_string); 
-     addConnections(mylinks);
+    
    }
    
  

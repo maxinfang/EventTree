@@ -41,6 +41,8 @@ function connector(id,h,t,EST,EFT,LST,LFT,FF,TF){
  this.FF="";
  this.TF="";
  this.activity="";
+ this.dropdown_color="";
+  this.prob_color="";
 }
 
 function Node(id,type,parent,top,left,activity,EST,EFT,LST,LFT,FF,TF){     
@@ -53,7 +55,8 @@ function Node(id,type,parent,top,left,activity,EST,EFT,LST,LFT,FF,TF){
  this.LST="";
  this.LFT="";
  this.FF="";
- this.TF="";                                                         
+ this.TF="";  
+    
 }  
 
 
@@ -83,8 +86,8 @@ function deserialiseF(string){
   var array= new Array(); 
   var stringwithCandL=string.split('a');   
   
-  
-  if (isset(stringwithCandL[2])){
+ 
+  if (typeof(stringwithCandL[2]) !="undefined"){
   updatefinalAnswer(stringwithCandL[2]);
   return stringwithCandL[2];
   
@@ -92,14 +95,10 @@ function deserialiseF(string){
 
 }
 
-function updateFinalAnser(new value){
+function updatefinalAnswer(value){
   
   //console.log(this.getelementsbyID("answer"));
-   
-
-  
-
-
+   var answer = document.getElementById('answer').value=value; 
 }
 
  
