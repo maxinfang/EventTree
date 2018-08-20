@@ -65,7 +65,8 @@ function NodeClass(node) {
   this.prevNode=null;       
   this.nextNodes=null;   
   this.prevconnectors=null;       
-  this.nextconnectors=null;   
+  this.nextconnectors=null; 
+  this.previouslinkbox=[];
   this.node=node;  
   this.level=0; 
   

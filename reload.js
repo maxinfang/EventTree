@@ -87,6 +87,7 @@ if(mode=="correct") {
       var parents= new Array(); 
       var nextlinkers= new Array();
       var prelinker= null;
+       
       for(var n=0; n<mylinks.length;n++){ 
        var link= mylinks[n]; 
        if (link.t==linkedNode.id){
@@ -111,13 +112,12 @@ if(mode=="correct") {
 
        }
   
-       
-   
+
+
        var linkedrootnode=findlinkednode(root.id)
        recursive(linkedrootnode); 
        var deep =linkedrootnode.level;
        
-      
        
        for(var n=deep; n>0 ;n--){
         
@@ -126,11 +126,57 @@ if(mode=="correct") {
            if(lnode.level== n) {  
                 if(lnode.prevconnectors==null)      
                   {lnode.node.EST=1;}
-             else { lnode.node.EST= lnode.prevNode[0].node.EST*lnode.prevconnectors.EST;  
+             else { lnode.node.EST= lnode.prevNode[0].node.EST*lnode.prevconnectors.EST; 
+               var parentslist=  lnode.prevNode[0].previouslinkbox;   
+               parentslist.push(lnode.prevconnectors.activity);
+                   lnode.previouslinkbox= parentslist;                       console.log( lnode.previouslinkbox);// lnode.node.EST.activity);
+                 
+                   
+                  
+                   
              } 
           }
         }
       }
+  
+  console.log(linkedrootnode);
+  
+    
+   var linkedconnections=new Array(); 
+   var linkedconnectionsserach=new Array(); 
+    
+  
+  
+    for(var l=0; l<mylinks.length; l++ ){
+    
+      var   connector =  mylinks[l]; 
+      var linkedconnector= new connectionClass(connector);
+     
+      var lnode=(findlinkednode(connector.h));
+      
+      
+       if(lnode.prevconnectors == null ) continue;
+      
+        console.log(lnode.prevconnectors );
+      
+      
+      
+      // push the activity to parent list as ID ?
+ 
+        var predecessor= new Array(); 
+       
+       
+     
+      linkedconnector.prevLinks=predecessor; 
+           
+      linkedconnections.push(linkedconnector); 
+      
+      
+    }
+  
+ 
+       console.log(linkedconnections);
+   
        
      /* var final=0;
       for (var j=0;j<linkedArray.length;j++){
