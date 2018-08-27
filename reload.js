@@ -120,16 +120,18 @@ if(mode=="correct") {
        
        
        for(var n=deep; n>0 ;n--){
-        
          for (var j=0;j<linkedArray.length;j++){
            var  lnode=  linkedArray[j];
            if(lnode.level== n) {  
                 if(lnode.prevconnectors==null)      
                   {lnode.node.EST=1;}
              else { lnode.node.EST= lnode.prevNode[0].node.EST*lnode.prevconnectors.EST; 
-               var parentslist=  lnode.prevNode[0].previouslinkbox;   
-               parentslist.push(lnode.prevconnectors.activity);
-                   lnode.previouslinkbox= parentslist;                       console.log( lnode.previouslinkbox);// lnode.node.EST.activity);
+                     
+                     var parentslist=[];
+                     parentslist =  lnode.prevNode[0].previouslinkbox;   
+                     parentslist.push(lnode.prevconnectors.activity);
+      lnode.previouslinkbox= parentslist;                       console.log( lnode.previouslinkbox);
+                    // lnode.node.EST.activity);
                  
                    
                   
@@ -144,19 +146,13 @@ if(mode=="correct") {
     
    var linkedconnections=new Array(); 
    var linkedconnectionsserach=new Array(); 
-    
-  
-  
+     
     for(var l=0; l<mylinks.length; l++ ){
     
       var   connector =  mylinks[l]; 
-      var linkedconnector= new connectionClass(connector);
-     
-      var lnode=(findlinkednode(connector.h));
-      
-      
-       if(lnode.prevconnectors == null ) continue;
-      
+      var linkedconnector= new connectionClass(connector); 
+      var lnode=(findlinkednode(connector.h));       
+       if(lnode.prevconnectors == null ) continue; 
         console.log(lnode.prevconnectors );
       
       
@@ -178,18 +174,20 @@ if(mode=="correct") {
        console.log(linkedconnections);
    
        
-     /* var final=0;
+      var final=0;
       for (var j=0;j<linkedArray.length;j++){
        var  lnode =  linkedArray[j]; 
-         if(lnode.level==1) {
-             console.log(lnode);
-             final =lnode.node.EST+final;
-        }
+         if(lnode.level==1) { 
+             if(lnode.node.activity =="1"){
+               final= final+lnode.node.EST;
+             
+             }
+         }
     
       }
-      console.log(final); 
-       */
-   
+  
+       console.log(final);
+    updatefinalAnswer(final);
      for(n=0; n<myNodes.length;n++){ 
        var node= myNodes[n];
      
