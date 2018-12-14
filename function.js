@@ -89,7 +89,8 @@ function deserialiseF(string){
   
  
   if (typeof(stringwithCandL[2]) !="undefined"){
-  updatefinalAnswer(stringwithCandL[2]);
+    
+ // updatefinalAnswer(stringwithCandL[2]);
   return stringwithCandL[2];
   
   }
@@ -99,7 +100,8 @@ function deserialiseF(string){
 function updatefinalAnswer(value){
   
   //console.log(this.getelementsbyID("answer"));
-   var answer = document.getElementById('answer').value=value; 
+    document.getElementById('answer').value=value; 
+  
 }
 
  
@@ -271,31 +273,7 @@ function deserialiseC(string){
 
 
 
-function findrootnode(){
 
- for(var m=0; m<myNodes.length;m++){ 
-   
-   var node= myNodes[m]; 
-   var id = node.id; 
-   
-   var count =0;
-   for(var n=0; n<mylinks.length;n++){
-    var link=mylinks[n];
-    if (link.t==id) {
-      count++;
-      console.log("link:++"+link);
-    }
-  }
-  if (count==0) {
-   console.log("root:"+id); 
-   return findnode(id);
- }
- 
-
-}
-
-
-}
 
 function findlink(h,t){
   
