@@ -90,7 +90,7 @@ function deserialiseF(string){
  
   if (typeof(stringwithCandL[2]) !="undefined"){
     
- // updatefinalAnswer(stringwithCandL[2]);
+  updatefinalAnswer(stringwithCandL[2]);
   return stringwithCandL[2];
   
   }
