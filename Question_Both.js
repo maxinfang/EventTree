@@ -312,9 +312,9 @@ $(document).ready(function()  {
  });
   
   
-   $("#answer").change(function(){ 
-     console.log( $("#answer").val());
-     final = $("#answer").val();
+   $("#nswer_id_001").change(function(){ 
+     console.log( $("#answer_id_001").val());
+     final = $("#answer_id_001").val();
       sentToparentPage(); 
                    
  });
