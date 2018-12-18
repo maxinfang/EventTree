@@ -753,8 +753,8 @@ function sentToparentPage()
    checkloop();
   console.log(mylinks); 
   var finanswer =  document.getElementById('answer').value; 
-  console.log('11111');
-  console.log(inanswer);
+   
+  
   answervalue= serialise(myNodes,mylinks,finanswer);
   
   
