@@ -48,6 +48,7 @@ function connector(id,h,t,EST,EFT,LST,LFT,FF,TF){
 function Node(id,type,parent,top,left,activity,EST,EFT,LST,LFT,FF,TF){     
  this.id = ""; 
  this.top ="";
+ this.parentID =""; 
  this.left=""; 
  this.activity="";
  this.EST="";
@@ -55,7 +56,8 @@ function Node(id,type,parent,top,left,activity,EST,EFT,LST,LFT,FF,TF){
  this.LST="";
  this.LFT="";
  this.FF="";
- this.TF="";  
+ this.TF=""; 
+ 
     
 }  
 
@@ -158,12 +160,14 @@ function deserialiseC(string){
        var dataAttribute=shapeanddata[1].split('d');
       // console.log(dataAttribute);
       node.activity=dataAttribute[1];
+   
       node.EST=dataAttribute[2];
       node.EFT=dataAttribute[3];
       node.LST=dataAttribute[4];
       node.LFT=dataAttribute[5];
       node.FF=dataAttribute[6];
       node.TF=dataAttribute[7]; 
+   
       array.push(node); 
     }  
     return array;   
@@ -239,8 +243,7 @@ function deserialiseC(string){
     
   } 
 
-  function generateID(myNodes){
-    
+  function generateID(myNodes){ 
     if (typeof(myNodes) == "undefined" ) {return 1;} 
     var myNodesArray=myNodes;
     var max=0;    
@@ -256,10 +259,8 @@ function deserialiseC(string){
 
 
  function findnode(id){ 
-  for(n=0; n<myNodes.length;n++){
-    
-    var node=myNodes[n];
-    
+  for(n=0; n<myNodes.length;n++){ 
+    var node=myNodes[n]; 
     if (node.id==id) {
      return node; 
    } 
@@ -267,12 +268,7 @@ function deserialiseC(string){
    
  }
 }
-
-
-
-
-
-
+ 
 
 
 function findlink(h,t){
@@ -403,6 +399,141 @@ return;
 
 
 
+
+function recursivecheck(currentnode,box){
+    
+       
+    box.push(currentnode) ;
+  
+    var parentid =currentnode.parentID;
+           
+    if(parentid=="") {return true;};
+  
+    var parentnode= findnode(parentid);
+  
+    if(include(box,parentnode)){
+    ret = new Array();
+    while (box.length > 0) {
+      temp = box.pop();
+      ret.push(temp);
+      if (include(ret,parentnode)) {
+        return ret;
+      }
+    }
+  } 
+  
+    else{ return  recursivecheck (parentnode,box);  
+          
+           
+         }
+  
+   
+}
+
+function include(arr, obj) {
+    for(var i=0; i<arr.length; i++) {
+        if (arr[i] == obj) return true;
+    }
+  
+  //include([1,2,3,4], 3); 
+}
+
+
+
+function checkloop(){
+   
+    var allerrors = new Array();
+    for(x=0; x<myNodes.length;x++){ 
+        var node= myNodes[x];
+          console.log(node);
+        var li=[]; 
+        li.push(node);  
+        if(node.parentID!=""&& node) { 
+            var parentid =node.parentID;
+            var parentnode= findnode(parentid);  
+            var temp= recursivecheck(parentnode, li )
+            if (temp!=true){ 
+                for (var l=0; l<temp.length;l++ ) {
+          if (! include(allerrors,temp[l])) {
+            allerrors.push(temp[l]);
+          }
+        }
+              
+            } 
+        }
+    
+    }  
+     giveloopWarning(allerrors);
+}
+
+
+function giveloopWarning(text){
+  
+        
+    var loop="Warning: loop detected!";
+    for(var n=0; n<text.length;n++){ 
+                  
+        node= text[n];
+        //loop= loop+" "+node.id; 
+              
+        var targetid ;
+        $("#"+node.id).children().each(function(no,el){ 
+            if($(el).hasClass("_jsPlumb_endpoint_anchor_")){
+                targetid= el.id ; 
+            } 
+        });
+  
+        var sourceid ; 
+        $("#"+node.id).children().each(function(no,el){
+                  
+            if($(el).hasClass("_jsPlumb_endpoint_anchor_")){
+                sourceid= el.id ; 
+            } 
+        }); 
+              
+        console.log(targetid);
+        console.log(sourceid);
+              
+    }
+             
+    var connectionList = jsPlumb.getConnections();
+    console.log(connectionList);
+    for(var x=0; x<connectionList.length; x++){
+           
+        conn =connectionList[x];
+      
+         var targetId=$('#'+conn.targetId).parent().attr('id');
+         var targetnode= findnode(targetId); 
+        if (include(text,targetnode)){
+            conn.setPaintStyle({ 
+                dashstyle: "solid",
+                lineWidth: 2 ,
+                strokeStyle:"#fa0000",
+            })
+        } 
+    else{
+      conn.setPaintStyle({ 
+                dashstyle: "solid",
+                lineWidth: 2 ,
+                strokeStyle:"#666",
+            })
+    }
+    }
+           
+    if(text.length>0){
+        $("body").css("background-color","#fee");
+        $("p").text(loop);
+  }
+   else{
+      // giveWarning();
+            
+       }; 
+
+}
+
+
+
+
 function  giveWarning(myNodes,mylinks){
   
   
@@ -413,7 +544,7 @@ function  giveWarning(myNodes,mylinks){
   for(n=0; n<myNodes.length;n++){  
  var node=myNodes[n];  
        //console.log(node);
-       var linkedNode= new NodeClass(node)
+     var linkedNode= new NodeClass(node);
      // console.log(linkedNode);
      linkedArray.push(linkedNode);  
      linkedArray2.push(linkedNode);
@@ -579,7 +710,20 @@ else{
 
 
 function sentToparentPage()
-{ giveWarning(myNodes,mylinks);
+{ 
+  
+  
+    for(m=0; m<mylinks.length;m++){ 
+        var linker= mylinks[m];
+      console.log(linker); 
+      var node = findnode(linker.t); 
+      node.parentID=Number(linker.h) ; 
+     
+  }   
+     
+  console.log(myNodes);
+//  giveWarning(myNodes,mylinks);
+   checkloop();
   console.log(mylinks);
   answervalue= serialise(myNodes,mylinks,final);
   console.log(answervalue);

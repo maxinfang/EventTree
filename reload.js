@@ -357,18 +357,72 @@ function findrootnode(){
                   {lnode.node.EST=1;}
              else { lnode.node.EST= lnode.prevNode[0].node.EST*lnode.prevconnectors.EST; 
                      
-                     var parentslist=[];
-                     parentslist =  lnode.prevNode[0].previouslinkbox;   
-                    // parentslist.push("break");
-                  lnode.previouslinkbox= parentslist;  
-                    console.log( lnode.previouslinkbox);
-                    // lnode.node.EST.activity);
+                   //  var parentslist=[];
+                   //   parentslist =  lnode.prevNode[0].previouslinkbox;  
+                  //    parentslist.push(lnode.prevconnectors.activity);
+                   //   lnode.previouslinkbox= parentslist;  
+                       
+                   
                   
                    
              } 
           }
         }
       }
+  //
+         
+       for(var n=deep; n>0 ;n--){
+         for (var j=0;j<linkedArray.length;j++){
+           var  lnode=  linkedArray[j];
+           if(lnode.level== n) {  
+                 var parentslist=[];
+                 if( lnode.prevNode[0] == null){
+                    console.log(lnode);
+                        
+                      }
+                 else{
+                      var parentslist=[];
+                      parentslist =  lnode.prevNode[0].previouslinkbox;  
+                      parentslist.push(lnode.prevconnectors.activity);
+                      lnode.previouslinkbox = parentslist;  }
+                 
+              
+          }
+        }
+      }
+  
+  
+  
+   console.log(linkedrootnode);
+  
+  
+  
+  
+    /*
+  
+    function getAncestors(nodeclass,list){ 
+            var parentlist= list;
+        var parentnode = nodeclass.prevNode ;
+            console.log(parentnode);
+        if ( parentnode==null) {
+             console.log(parentlist);
+             return parentlist;
+           }
+        else {  
+            parentlist.push(parentnode.node.value);
+            getAncestors(parentnode,parentlist); 
+        }
+       
+         return parentlist;
+       
+         
+     
+     }   
+        
+  
+  */
+  
+  
   
   console.log(linkedrootnode);
   console.log(linkedrootnode_student);

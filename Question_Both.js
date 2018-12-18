@@ -273,13 +273,7 @@ $(document).ready(function()  {
      }
      
      
-     
-    
-     console.log("*******************event trigged");
-    console.log("thisnodepriviousid"+beforeId);   
-    console.log("thisnodeconnected"+childId);
-    console.log("thisnodeconnected"+parentId);
-    
+      
     
      if(beforeId!=childId){  
        if (parentId != childId){
@@ -293,11 +287,11 @@ $(document).ready(function()  {
           if (typeof(originalEvent) != "undefined"){
            if(originalEvent.type=="drop")
              { deletelink(parentId,childId); 
-               console.log("chekck");
+              // console.log("chekck");
              }
              if(originalEvent.type=="dragstop")
                { deletelink(parentId,childId); 
-                 console.log("chekck");
+              //   console.log("chekck");
                }
              }
            } 
