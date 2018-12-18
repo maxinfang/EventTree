@@ -525,7 +525,8 @@ function giveloopWarning(text){
         $("p").text(loop);
   }
    else{
-      // giveWarning();
+     
+      giveWarning();
             
        }; 
 
@@ -534,7 +535,33 @@ function giveloopWarning(text){
 
 
 
-function  giveWarning(myNodes,mylinks){
+function  giveWarning(){
+      var numberOfnoParent=0;
+  
+  for(n=0; n<myNodes.length;n++){
+        var node= myNodes[n];
+        var parentid = node.parentID;
+        if(parentid=="") numberOfnoParent++;
+    
+    
+       }  
+         if (numberOfnoParent>1) {
+           
+           $("body").css("background-color","#fee");
+           $("p").text("Warning: Not all nodes are connected!");
+            
+         }  
+            else{
+              $("body").css("background-color","transparent");
+              $("p").text("");
+            
+       }; 
+}
+
+
+
+
+function  giveWarning_old(myNodes,mylinks){
   
   
   
@@ -711,7 +738,7 @@ else{
 
 function sentToparentPage()
 { 
-  
+   
   
     for(m=0; m<mylinks.length;m++){ 
         var linker= mylinks[m];
@@ -725,6 +752,9 @@ function sentToparentPage()
 //  giveWarning(myNodes,mylinks);
    checkloop();
   console.log(mylinks);
+  
+  
+   var final =document.getElementById('answer').value;
   answervalue= serialise(myNodes,mylinks,final);
   console.log(answervalue);
   
