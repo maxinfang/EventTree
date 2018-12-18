@@ -102,7 +102,7 @@ function deserialiseF(string){
 function updatefinalAnswer(value){
   
   //console.log(this.getelementsbyID("answer"));
-    document.getElementById('answer').value=value; 
+    document.getElementById('answer_id_001').value=value; 
   
 }
 
@@ -752,7 +752,7 @@ function sentToparentPage()
 //  giveWarning(myNodes,mylinks);
    checkloop();
   console.log(mylinks); 
-  var finanswer =  document.getElementById('answer').value; 
+  var finanswer =  document.getElementById('answer_id_001').value; 
    
   
   answervalue= serialise(myNodes,mylinks,finanswer);
