@@ -2,25 +2,25 @@
 
 var Color="#fa0000";
 var strokecolor="black";
-
-  
+var color= "blue";
+var dotColor="#456" ;
 
 function addShapewithColor(type,dragzone,color,dotcolor,outlinecolor){
 
  
+console.log(color);
 
-if(mode=="correct") {   color= "green"};
-if(mode=="submission") { Color= "#0060bf"};
-  
+if(mode=="submission") { color= "blue"}; 
 if(mode=="correct") {   color= "green"};
 if(color =="blue") Color="#0060bf";
 if(color =="red") Color="#d9534f";
 if(color =="orange") Color="#ffa500";
-if(color =="green") Color ="#5cc902";
-if(color =="grey") Color ="#808080"; //testing color 
+if(color =="green" ) Color ="green";
+//if(color =="green") Color ="#5cc902";
+//if(color =="grey") Color ="#808080"; //testing color 
   
-if(dotcolor =="red") {dotColor="red";Color ="#ffa500";} else {dotColor="#456"}
-if(outlinecolor =="outlinered") { console.log("~~~~~~~~~~~~~~~");strokecolor="red";  } else { strokecolor="black";}
+//if(dotcolor =="red") {dotColor="red"; } else {dotColor="#456"}
+//if(outlinecolor =="outlinered") { console.log("~~~~~~~~~~~~~~~");strokecolor="red";  } else { //strokecolor="black";}
   
 if (type=="C") {addCircle(dragzone);} 
   

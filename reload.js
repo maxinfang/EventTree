@@ -366,10 +366,7 @@ function findrootnode(){
                    //  var parentslist=[];
                    //   parentslist =  lnode.prevNode[0].previouslinkbox;  
                   //    parentslist.push(lnode.prevconnectors.activity);
-                   //   lnode.previouslinkbox= parentslist;  
-                       
-                   
-                  
+                   //   lnode.previouslinkbox= parentslist;   
                    
              } 
           }
@@ -377,11 +374,11 @@ function findrootnode(){
       }
   //
          
-       for(var n=deep; n>0 ;n--){
+     /*  for(var n=deep; n>0 ;n--){
          for (var j=0;j<linkedArray.length;j++){
            var  lnode=  linkedArray[j];
-           if(lnode.level== n) {  
-                 var parentslist=[];
+            if(lnode.level== n) {  
+             //    var parentslist=[];
                  if( lnode.prevNode[0] == null){
                     console.log(lnode);
                         
@@ -390,45 +387,59 @@ function findrootnode(){
                       var parentslist=[];
                       parentslist =  lnode.prevNode[0].previouslinkbox;  
                       parentslist.push(lnode.prevconnectors.activity);
-                      lnode.previouslinkbox = parentslist;  }
-                 
-              
+                      lnode.previouslinkbox = parentslist;  }   
           }
         }
       }
-  
-  
-  
-   console.log(linkedrootnode);
-  
-  
-  
-  
-    /*
-  
-    function getAncestors(nodeclass,list){ 
-            var parentlist= list;
-        var parentnode = nodeclass.prevNode ;
-            console.log(parentnode);
-        if ( parentnode==null) {
-             console.log(parentlist);
-             return parentlist;
-           }
-        else {  
-            parentlist.push(parentnode.node.value);
-            getAncestors(parentnode,parentlist); 
-        }
-       
-         return parentlist;
-       
-         
-     
-     }   
-        
-  
   */
   
+    for (var l=0;l<linkedArray.length;l++){ 
+           var  lnode=  linkedArray[l]; 
+         //  console.log( lnode); 
+           var ancestorsnode= lnode; 
+           var parentslist=[];  
+                  while( ancestorsnode.prevconnectors){
+                  //// console.log(ancestorsnode.prevconnectors); 
+                   parentslist.push(ancestorsnode.prevconnectors.activity); 
+                   ancestorsnode= ancestorsnode.prevNode[0];
+                  // console.log( ancestorsnode);  
+                 }
+             lnode.previouslinkbox = parentslist;
+            
+      
+    }
   
+    for (var l=0;l<linkedArray_student.length;l++){ 
+           var  lnode=  linkedArray_student[l]; 
+         //  console.log( lnode); 
+           var ancestorsnode= lnode; 
+           var parentslist=[];  
+                  while( ancestorsnode.prevconnectors){
+                  //// console.log(ancestorsnode.prevconnectors); 
+                   parentslist.push(ancestorsnode.prevconnectors.activity); 
+                   ancestorsnode= ancestorsnode.prevNode[0];
+                  // console.log( ancestorsnode);  
+                 }
+             lnode.previouslinkbox = parentslist;
+            
+      
+    }
+  
+  
+   for (var l=0;l<linkedArray.length;l++){ 
+           var  lnode=  linkedArray[l];  
+                 lnode.node.color="red";
+              for (var p=0;p<linkedArray_student.length;++p){  
+                   var  lnode_student=  linkedArray_student[p];  
+                   
+                     lnode.previouslinkbox.compare(lnode_student.node.previouslinkbox)   
+                       lnode.node.color="green";
+                      
+                
+                }
+        
+      
+    }
   
   console.log(linkedrootnode);
   console.log(linkedrootnode_student);
