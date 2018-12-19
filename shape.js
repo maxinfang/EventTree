@@ -10,8 +10,11 @@ function addShapewithColor(type,dragzone,color,dotcolor,outlinecolor){
  
 console.log(color);
 
-if(mode=="submission") { color= "blue"}; 
-if(mode=="correct") {   color= "green"};
+if(mode=="submission"  ) { Color= "blue"}; 
+if(mode=="correct") {   Color= "green"};
+if(mode=="student") {   Color = "red"};
+  
+  
 if(color =="blue") Color="#0060bf";
 if(color =="red") Color="#d9534f";
 if(color =="orange") Color="#ffa500";
