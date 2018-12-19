@@ -87,6 +87,9 @@ function redraw(history,correct_string){
     console.log(node);
     drawnode(node);
   }   
+    
+    
+  addConnections(mylinks);
   
 }
    
