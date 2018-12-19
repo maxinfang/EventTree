@@ -752,10 +752,10 @@ function sentToparentPage()
 //  giveWarning(myNodes,mylinks);
    checkloop();
   console.log(mylinks); 
-  var finanswer =  document.getElementById('answer_id_001').value; 
+  var finalanswer =  document.getElementById('answer_id_001').value; 
    
-  
-  answervalue= serialise(myNodes,mylinks,finanswer);
+  console.log(finalanswer);
+  answervalue= serialise(myNodes,mylinks,finalanswer);
   
   
   var elem= parent.document.getElementsByTagName("input"); 
