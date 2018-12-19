@@ -264,7 +264,7 @@ function findrootnode(){
    } 
    
   function findlinkednode(id){ 
-     for (x=0;x<linkedArray2.length;x++){ 
+     for (var x=0;x<linkedArray2.length;x++){ 
       var li=linkedArray2[x];
       if(li.id==id){return li;}
     } 
@@ -272,7 +272,7 @@ function findrootnode(){
  } 
   
    function findlinkednode_student(id){ 
-     for (x=0;x<linkedArray2_student.length;x++){ 
+     for (var x=0;x<linkedArray2_student.length;x++){ 
       var li=linkedArray2_student[x];
       if(li.id==id){return li;}
     } 
@@ -350,7 +350,7 @@ function findrootnode(){
        var deep =linkedrootnode.level;
   
   
-       var linkedrootnode_student=findlinkednode(root.id)
+       var linkedrootnode_student=findlinkednode_student(root_student.id)
        recursive(linkedrootnode_student); 
        var deep_student =linkedrootnode_student.level;
        
@@ -409,10 +409,12 @@ function findrootnode(){
       
     }
   
-    for (var l=0;l<linkedArray_student.length;l++){ 
-           var  lnode_student=  linkedArray_student[l]; 
+  
+  
+    for (var p=0;p<linkedArray_student.length;p++){ 
+           var  lnode_student=  linkedArray_student[p]; 
          //  console.log( lnode); 
-           var ancestorsnode= lnode; 
+           var ancestorsnode= lnode_student; 
            var parentslist=[];  
                   while( ancestorsnode.prevconnectors){
                   //// console.log(ancestorsnode.prevconnectors); 
@@ -426,22 +428,30 @@ function findrootnode(){
     }
   
   
-   for (var l=0;l<linkedArray.length;l++){ 
-           var  lnode=  linkedArray[l];  
-                 lnode.node.color="red";
-              for (var p=0;p<linkedArray_student.length;++p){  
-                   var  lnode_student=  linkedArray_student[p];   
+  
+   for (var m=0;m<linkedArray.length;m++){ 
+           var  lnode=  linkedArray[m];  
+               
+     
+                  flag = false;
+              for (var s=0;s<linkedArray_student.length;s++){   
+                   var  lnode_student =  linkedArray_student[s]; 
                 
-                console.log(lnode.previouslinkbox);
-                console.log(lnode_student.previouslinkbox);
-                     if(lnode.previouslinkbox.compare(lnode_student.previouslinkbox) ){
-                      
-                       lnode.node.color="green";
+                   console.log(lnode.previouslinkbox);
+                   console.log(lnode_student.previouslinkbox);
+            
+                if(!lnode.previouslinkbox.compare(lnode_student.previouslinkbox )){                  
+                       flag= false;
                       } 
-                      
-                
+                else{
+                      console.log("same");
+                      flag = true;
+                      break; 
                 }
-        
+                  
+                }
+              if (flag==true)   { lnode.node.color="green";  }
+              else {   lnode.node.color="red";}
       
     }
   
