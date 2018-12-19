@@ -410,7 +410,7 @@ function findrootnode(){
     }
   
     for (var l=0;l<linkedArray_student.length;l++){ 
-           var  lnode=  linkedArray_student[l]; 
+           var  lnode_student=  linkedArray_student[l]; 
          //  console.log( lnode); 
            var ancestorsnode= lnode; 
            var parentslist=[];  
@@ -420,7 +420,7 @@ function findrootnode(){
                    ancestorsnode= ancestorsnode.prevNode[0];
                   // console.log( ancestorsnode);  
                  }
-             lnode.previouslinkbox = parentslist;
+             lnode_student.previouslinkbox = parentslist;
             
       
     }
@@ -430,10 +430,14 @@ function findrootnode(){
            var  lnode=  linkedArray[l];  
                  lnode.node.color="red";
               for (var p=0;p<linkedArray_student.length;++p){  
-                   var  lnode_student=  linkedArray_student[p];  
-                   
-                     lnode.previouslinkbox.compare(lnode_student.node.previouslinkbox)   
+                   var  lnode_student=  linkedArray_student[p];   
+                
+                console.log(lnode.previouslinkbox);
+                console.log(lnode_student.previouslinkbox);
+                     if(lnode.previouslinkbox.compare(lnode_student.node.previouslinkbox) ){
+                      
                        lnode.node.color="green";
+                      } 
                       
                 
                 }

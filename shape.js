@@ -2,7 +2,7 @@
 
 var Color="#fa0000";
 var strokecolor="black";
-var color= "blue";
+var color= "";
 var dotColor="#456" ;
 
 function addShapewithColor(type,dragzone,color,dotcolor,outlinecolor){
@@ -15,7 +15,7 @@ if(mode=="correct") {   color= "green"};
 if(color =="blue") Color="#0060bf";
 if(color =="red") Color="#d9534f";
 if(color =="orange") Color="#ffa500";
-if(color =="green" ) Color ="green";
+if(color =="green" ) Color ="#5cc902";
 //if(color =="green") Color ="#5cc902";
 //if(color =="grey") Color ="#808080"; //testing color 
   
