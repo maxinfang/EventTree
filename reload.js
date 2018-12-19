@@ -434,7 +434,7 @@ function findrootnode(){
                 
                 console.log(lnode.previouslinkbox);
                 console.log(lnode_student.previouslinkbox);
-                     if(lnode.previouslinkbox.compare(lnode_student.node.previouslinkbox) ){
+                     if(lnode.previouslinkbox.compare(lnode_student.previouslinkbox) ){
                       
                        lnode.node.color="green";
                       } 
