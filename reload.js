@@ -90,6 +90,9 @@ function redraw(history,correct_string){
     
     
   addConnections(mylinks);
+    
+  updatefinalAnswer(final);  
+    
   
 }
    
