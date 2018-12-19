@@ -175,7 +175,7 @@ function deserialiseC(string){
   }
 
 
-  function serialise(myNodes,mylinks,fianl){
+  function serialise(myNodes,mylinks,final){
     
     var answervalue ="";  
     for(l=0;l<myNodes.length;l++){
